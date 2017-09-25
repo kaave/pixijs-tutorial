@@ -184,8 +184,6 @@ tags
 
 # IntelliJ settings
 /.idea
-# flow declare files
-/flow-typed
 # build files (development)
 /.tmp
 # build files (production)

@@ -1,4 +1,3 @@
-const path = require('path');
 const customProperties = require('postcss-custom-properties');
 const nested = require('postcss-nested');
 const importCss = require('postcss-import');
@@ -16,17 +15,14 @@ module.exports = {
     modules: [
       'node_modules',
     ],
-    extensions: ['json', '.jsx', '.js'],
+    extensions: ['json', '.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: conf.script.babelOptions
-        },
+        use: 'awesome-typescript-loader',
       },
       {
         test: /\.css$/,
@@ -43,10 +39,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: (loader) => [
+              plugins: loader => [
                 customProperties,
                 nested,
-                importCss({root: loader.resourcePath}),
+                importCss({ root: loader.resourcePath }),
                 autoprefixer(conf.style.autoprefixerOption)
               ],
             }
