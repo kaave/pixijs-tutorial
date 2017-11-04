@@ -1,15 +1,11 @@
-@import "../../node_modules/libraries-frontend-framelunch/css/_variables.css";
-@import "../../node_modules/libraries-frontend-framelunch/css/_keyframes.css";
-@import "../../node_modules/libraries-frontend-framelunch/css/_reset.css";
+@import "libraries-frontend-framelunch/css/_variables.css";
+@import "libraries-frontend-framelunch/css/_keyframes.css";
+@import "libraries-frontend-framelunch/css/_reset.css";
 
 body {
     font-family: var(--fontFamily-base);
     background: var(--color-main);
     color: var(--color-font);
-
-    @media (--not-sp) {
-        background: var(--color-gray);
-    }
 }
 
 /* stylelint-disable-next-line */

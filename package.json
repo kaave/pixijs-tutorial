@@ -30,11 +30,12 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "jquery": "^3.2.1",
-    "libraries-frontend-framelunch": "framelunch/libraries-frontend-framelunch#v0.1.2"
+    "libraries-frontend-framelunch": "framelunch/libraries-frontend-framelunch#v0.1.2",
+    "pixi.js": "^4.6.0"
   },
   "devDependencies": {
-    "@types/animejs": "^2.0.0",
     "@types/jquery": "^3.2.12",
+    "@types/pixi.js": "^4.5.7",
     "autoprefixer": "^7.1.4",
     "awesome-typescript-loader": "^3.2.3",
     "browser-sync": "^2.18.13",
