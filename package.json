@@ -31,6 +31,7 @@
     "babel-polyfill": "^6.26.0",
     "jquery": "^3.2.1",
     "libraries-frontend-framelunch": "framelunch/libraries-frontend-framelunch#v0.1.2",
+    "pixi-particles": "^2.1.8",
     "pixi.js": "^4.6.0"
   },
   "devDependencies": {
