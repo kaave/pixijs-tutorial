@@ -68,6 +68,7 @@ module.exports = {
         'jquery',
       ],
       index: './src/js/index.ts',
+      filters: './src/js/filters.ts',
     },
   },
 
