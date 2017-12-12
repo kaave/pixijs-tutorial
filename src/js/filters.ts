@@ -1,38 +1,67 @@
 import 'babel-polyfill'; // アプリ内で1度だけ読み込む エントリーポイントのてっぺん推奨
 import * as PIXI from 'pixi.js';
+import { AdvancedBloomFilter } from '@pixi/filter-advanced-bloom';
+import { GodrayFilter } from '@pixi/filter-godray';
 
-window.addEventListener('DOMContentLoaded', () => {
-  const type = PIXI.utils.isWebGLSupported() ? 'WebGL' : 'canvas';
-  PIXI.utils.sayHello(type);
+class Main {
+  renderer: PIXI.WebGLRenderer | PIXI.CanvasRenderer;
+  stage: PIXI.Container;
+  filters: {
+    advancedBloomFilter: AdvancedBloomFilter,
+    godray: GodrayFilter,
+  };
 
-  const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-  const stage = new PIXI.Container();
-  renderer.render(stage);
+  constructor() {
+    this.onDOMContentLoaded = this.onDOMContentLoaded.bind(this);
+    this.onScroll = this.onScroll.bind(this);
+  }
 
-  setTimeout(() => {
+  onDOMContentLoaded() {
+    this.renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+    this.stage = new PIXI.Container();
+
     PIXI.loader
       .add({ name: 'unsplash', url: '4.jpg' })
-      .on('progress', (loader, resource) => {
-        console.log('loading:', resource.name);
-        console.log('progress:', loader.progress + '%');
-      })
       .load(() => {
         const container = new PIXI.Container();
         Object.values(PIXI.loader.resources).forEach((resource, i) => {
           const sprite = new PIXI.Sprite(resource.texture);
           sprite.position.set(0, 0);
-          sprite.width = renderer.width;
-          sprite.height = renderer.height;
+          sprite.width = this.renderer.width;
+          sprite.height = this.renderer.height;
           container.addChild(sprite);
         });
+        this.filters = {
+          advancedBloomFilter: new AdvancedBloomFilter(),
+          godray: new GodrayFilter(),
+        };
 
-        stage.addChild(container);
-        renderer.render(stage);
+        container.filters = Object.values(this.filters);
+        this.stage.addChild(container);
+        this.updateFilter();
+        this.updateRenderer();
+        window.addEventListener('scroll', this.onScroll);
       });
 
-    renderer.autoResize = true;
-    renderer.render(stage);
-  }, 1000);
+    this.renderer.autoResize = true;
 
-  document.body.appendChild(renderer.view);
-});
+    document.body.appendChild(this.renderer.view);
+  }
+
+  onScroll() {
+    this.updateFilter();
+  }
+
+  updateFilter() {
+    this.filters.advancedBloomFilter.threshold = 1 - (window.pageYOffset / document.body.getBoundingClientRect().height);
+    this.filters.godray.gain = window.pageYOffset / document.body.getBoundingClientRect().height;
+    this.updateRenderer();
+  }
+
+  updateRenderer() {
+    this.renderer.render(this.stage);
+  }
+}
+
+const main = new Main();
+window.addEventListener('DOMContentLoaded', main.onDOMContentLoaded);

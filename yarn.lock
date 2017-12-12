@@ -19,6 +19,14 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@pixi/filter-advanced-bloom@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@pixi/filter-advanced-bloom/-/filter-advanced-bloom-2.3.0.tgz#06598088cfe2b08c32d5eb5b11da2bc6348eb7fc"
+
+"@pixi/filter-godray@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@pixi/filter-godray/-/filter-godray-2.3.0.tgz#3a85e90c71c52539bf40d18174adc84da1b1e158"
+
 "@types/jquery@^3.2.12":
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.12.tgz#f496823108c3874c97c9a822e675a3926ee64b46"
@@ -4614,10 +4622,6 @@ pinkie-promise@^2.0.0:
 pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
-
-pixi-filters@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/pixi-filters/-/pixi-filters-2.3.1.tgz#edcaf9f9eed2e2f76912a9980f28e3db9474ddb1"
 
 pixi-gl-core@^1.0.3:
   version "1.1.0"

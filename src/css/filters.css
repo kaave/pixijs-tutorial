@@ -1,0 +1,9 @@
+@import "_global.css";
+
+body {
+    height: 5000px;
+}
+
+canvas {
+    position: fixed;
+}
