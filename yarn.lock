@@ -23,6 +23,10 @@
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/filter-advanced-bloom/-/filter-advanced-bloom-2.3.0.tgz#06598088cfe2b08c32d5eb5b11da2bc6348eb7fc"
 
+"@pixi/filter-convolution@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@pixi/filter-convolution/-/filter-convolution-2.4.0.tgz#7121226fbfb88bc751bb2b3b45870da498620d18"
+
 "@pixi/filter-godray@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/filter-godray/-/filter-godray-2.3.0.tgz#3a85e90c71c52539bf40d18174adc84da1b1e158"
